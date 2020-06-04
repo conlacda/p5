@@ -1,0 +1,3 @@
+Khởi tạo bảng initBoard
+Khởi tạo nền
+Vẽ bảng
