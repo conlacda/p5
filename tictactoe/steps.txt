@@ -1,3 +1,13 @@
 Khởi tạo bảng initBoard
 Khởi tạo nền
 Vẽ bảng
+Vẽ hình XO khi người chơi ấn theo lượt
+Giới hạn lại khung khi người dùng ẩn ra ngoài biên
+Check xem ván đấu đã kết thúc chưa -> hiển thị kết quả
+Thêm minimax
+2 AI tự chơi với nhau
+3 người chơi trở lên
+4 cái nối liền mới thắng (hoặc 5,6 cái,..)
+Đếm thời gian cho mỗi lượt, hiệu ứng tới người chơi khác -> thay đổi sáng tối bàn cờ,hình dạng con chuột
+alpha beta pruning (tránh quét mọi trường hợp) minimax and alpha-beta pruning
+complex game "heuristic" ??? chưa hiểu ý là sao
