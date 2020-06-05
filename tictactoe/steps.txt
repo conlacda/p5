@@ -11,3 +11,5 @@ Thêm minimax
 Đếm thời gian cho mỗi lượt, hiệu ứng tới người chơi khác -> thay đổi sáng tối bàn cờ,hình dạng con chuột
 alpha beta pruning (tránh quét mọi trường hợp) minimax and alpha-beta pruning
 complex game "heuristic" ??? chưa hiểu ý là sao
+Game khác
+https://www.geeksforgeeks.org/minimax-algorithm-in-game-theory-set-5-zobrist-hashing/

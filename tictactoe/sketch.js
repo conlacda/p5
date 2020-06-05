@@ -38,7 +38,7 @@ function checkHorizontal(x, y) {
   let unique = [... new Set(spot_array)];
   unique = JSON.stringify(unique);
   if ( unique === JSON.stringify([human]) || unique === JSON.stringify([computer])) {
-    winner = unique[0]
+    winner = unique[2]
     gameOver = true;
   }
 }
@@ -50,7 +50,7 @@ function checkVertical(x,y) {
   let unique = [... new Set(spot_array)];
   unique = JSON.stringify(unique);
   if (unique === JSON.stringify([human]) || unique === JSON.stringify([computer])) {
-    winner = unique[0]
+    winner = unique[2]
     gameOver = true;
   }
 }
@@ -65,7 +65,7 @@ function checkDiagonal(x,y) {
   unique = [... new Set(spot_array)];
   unique = JSON.stringify(unique);
   if (unique === JSON.stringify([human]) || unique === JSON.stringify([computer])) {
-    winner = unique[0]
+    winner = unique[2]
     gameOver = true;
   }
   // Đường chéo sang trái
@@ -76,7 +76,7 @@ function checkDiagonal(x,y) {
   unique = [... new Set(spot_array)];
   unique = JSON.stringify(unique);
   if (unique === JSON.stringify([human]) || unique === JSON.stringify([computer])) {
-    winner = unique[0]
+    winner = unique[2]
     gameOver = true;
   }
 }
