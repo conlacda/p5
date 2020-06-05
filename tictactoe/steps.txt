@@ -3,7 +3,7 @@ Khởi tạo nền
 Vẽ bảng
 Vẽ hình XO khi người chơi ấn theo lượt
 Giới hạn lại khung khi người dùng ẩn ra ngoài biên
-Check xem ván đấu đã kết thúc chưa -> hiển thị kết quả
+Check xem ván đấu đã kết thúc chưa -> hiển thị kết quả -> ok
 Thêm minimax
 2 AI tự chơi với nhau
 3 người chơi trở lên
