@@ -111,7 +111,7 @@ function mousePressed() {
     if (board[i][j] == "") {
       board[i][j] = currentPlayer;
       currentPlayer = currentPlayer == human ? computer : human;
-      // findBestMove();
+
     }
     checkWinner();
   }

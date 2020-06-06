@@ -2,7 +2,7 @@
 function findBestMove() {
     // tìm ra tọa độ (x,y) tốt nhất cần đánh cho người chơi hiện tại
     // lặp qua tất cả các ô và tính điểm các ô đó
-    bestScore = -Infinity;
+    let bestScore = -Infinity;
     let move = {};
     for (let i = 0; i < boundaryX; i++) {
         for (let j = 0; j < boundaryY; j++) {
@@ -21,6 +21,21 @@ function findBestMove() {
     if (currentPlayer == human) {
         currentPlayer = computer;
     } else currentPlayer = human;
+    console.log(bestScore);
+}
+function printScore() {
+    console.log('-----------------------');
+    console.log(currentPlayer);
+    for (let i = 0; i < boundaryX; i++) {
+        for (let j = 0; j < boundaryY; j++){
+            if (board[i][j] == '') {
+                board[i][j] = currentPlayer;
+                console.log(i, j);
+                console.log(minimax(board, 0, false));
+                board[i][j] = '';
+            }
+        }
+    }
 }
 function minimax(board, depth, isMaximizing) {
     // board: trạng thái bảng hiện tại
