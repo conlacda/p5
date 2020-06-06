@@ -22,31 +22,34 @@ function value(x, y) {
 function checkHorizontal(x, y) {
   // hàm này lấy ra 1 hàng ngang bắt đầu từ điểm (x,y) và kiểm tra xem mảng đó có chỉ 1 loại X,O hay ko
   let spot_array = [];
+  let winner_ = ""
   for (let i = 0; i < connect; i++) {
     spot_array.push(value(x + i, y));
   }
   let unique = [... new Set(spot_array)];
   unique = JSON.stringify(unique);
   if (unique === JSON.stringify([human]) || unique === JSON.stringify([computer])) {
-    winner = unique[2]
-    gameOver = true;
+    winner_ = unique[2]
   }
+  return winner_;
 }
 function checkVertical(x, y) {
   let spot_array = [];
+  let winner_ = "";
   for (let j = 0; j < connect; j++) {
     spot_array.push(value(x, y + j));
   }
   let unique = [... new Set(spot_array)];
   unique = JSON.stringify(unique);
   if (unique === JSON.stringify([human]) || unique === JSON.stringify([computer])) {
-    winner = unique[2]
-    gameOver = true;
+    winner_ = unique[2]
   }
+  return winner_;
 }
 function checkDiagonal(x, y) {
   // Check đường chéo
   let spot_array = [];
+  let winner_ = "";
   let unique;
   // Đường chéo sang phải
   for (let i = 0; i < connect; i++) {
@@ -55,8 +58,7 @@ function checkDiagonal(x, y) {
   unique = [... new Set(spot_array)];
   unique = JSON.stringify(unique);
   if (unique === JSON.stringify([human]) || unique === JSON.stringify([computer])) {
-    winner = unique[2]
-    gameOver = true;
+    winner_ = unique[2]
   }
   // Đường chéo sang trái
   spot_array = []
@@ -66,19 +68,19 @@ function checkDiagonal(x, y) {
   unique = [... new Set(spot_array)];
   unique = JSON.stringify(unique);
   if (unique === JSON.stringify([human]) || unique === JSON.stringify([computer])) {
-    winner = unique[2]
-    gameOver = true;
+    winner_ = unique[2];
   }
 }
 
 function checkTie() {
+  let winner = "";
   for (let i = 0; i < boundaryX; i++) {
     for (let j = 0; j < boundaryY; j++) {
-      if (board[i][j] == '') return;// còn ít nhất 1 nước đi
+      if (board[i][j] == '') return winner;// còn ít nhất 1 nước đi
     }
   }
-  winner = 'tie'
-  gameOver = true;
+  winner = 'tie';
+  return winner;
 }
 function checkWinner() {
   // 1 vòng lặp qua tất cả các ô và kiểm tra xem ô đó có phải ô đầu tiên trong chuỗi 3 cái liên tục ko 
@@ -86,13 +88,14 @@ function checkWinner() {
   // Trả về gameOver và winner = human,computer,null
   for (let i = 0; i < boundaryX; i++) {
     for (let j = 0; j < boundaryY; j++) {
-      checkHorizontal(i, j);
-      checkVertical(i, j);
-      checkDiagonal(i, j);
-      checkTie();
+      winner = checkHorizontal(i, j) ||
+        checkVertical(i, j) ||
+        checkDiagonal(i, j) ||
+        checkTie();
+      if (winner) return winner;
     }
   }
-  return gameOver;
+  return "";
 }
 
 function outOfBoard(x, y) {
@@ -142,7 +145,8 @@ function draw() {
       }
     }
   }
-  if (gameOver) {
+  result = checkWinner();
+  if (result) {
     noLoop(); // dừng hàm draw() 
     if (winner == 'tie') alert("Tie")
     else {

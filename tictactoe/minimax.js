@@ -20,7 +20,7 @@ function minimax(board,isMaximizing) {
     // board: trạng thái bảng hiện tại
     // isMaximizing: đánh dấu xem mình là bên nào
     // trả về điểm số của nước đi đó
-    
+    let result = checkWinner();
     
     return 1;
 }
