@@ -70,6 +70,7 @@ function checkDiagonal(x, y) {
   if (unique === JSON.stringify([human]) || unique === JSON.stringify([computer])) {
     winner_ = unique[2];
   }
+  return winner_;
 }
 
 function checkTie() {
