@@ -44,7 +44,7 @@ function minimax(board, depth, isMaximizing) {
     // isMaximizing: tối đa số điểm của đối phương
     let result = checkWinner();
     if (result != "") {
-        return scores[result];
+        return scores[currentPlayer][result];
     }
     if (isMaximizing) { // chọn ô cho mình số điểm lớn nhất
         let bestScore = -Infinity;
